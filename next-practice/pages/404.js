@@ -8,11 +8,11 @@ import { useEffect } from "react";
 
 const PageNotFound = () => {
   const router = useRouter();
-  useEffect(() => {
-    setTimeout(() => {
-      router.push("/practice/");
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     router.push("/practice/");
+  //   }, 3000);
+  // }, []);
 
   return (
     <Layout title="Page Not Found">
