@@ -1,25 +1,40 @@
-import { FaExclamationTriangle } from 'react-icons/fa'
-import Link from 'next/link'
-import Layout from '@/components/Layout'
-import styles from '@/styles/404.module.css'
+import { FaExclamationTriangle } from "react-icons/fa";
+import Link from "next/link";
+import Layout from "@/components/Layout";
+import styles from "@/styles/404.module.css";
+import styless from "@/styles/Home.module.css";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const PageNotFound = () => {
-   return (
-      <Layout title="Page Not Found">
+  const router = useRouter();
+  useEffect(() => {
+    setTimeout(() => {
+      router.push("/practice/");
+    }, 3000);
+  }, []);
 
-         <div className={styles.error}>
+  return (
+    <Layout title="Page Not Found">
+      <div className={styles.error}>
+        <div className={styles.icon}>
+          <FaExclamationTriangle />
+        </div>
+        <h1>404</h1>
+        <h4> Sorry, there is nothing here</h4>
+        <Link href="/">
+          <a className={styless.btn} href="">
+            Back To Home Page
+          </a>
+        </Link>
+        <Link href="/practice/">
+          <a className={styless.btn} href="">
+            Back To Practice Page
+          </a>
+        </Link>
+      </div>
+    </Layout>
+  );
+};
 
-            <div className={styles.icon}>
-               <FaExclamationTriangle />
-            </div>
-            <h1>404</h1>
-            <h4> Sorry, there is nothing here</h4>
-            <Link href='/'>Go Back To Home Page</Link>
-         </div>
-
-
-      </Layout>
-   )
-}
-
-export default PageNotFound
+export default PageNotFound;
